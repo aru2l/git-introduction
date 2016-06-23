@@ -1,83 +1,748 @@
 <!doctype html>
 <html lang="fr">
-
-	<head>
-		<meta charset="utf-8">
-
-		<title>Introduction à l'outil de versionning Git</title>
-
-		<meta name="description" content="Introduction à l'outil de versionning Git">
-		<meta name="author" content="Alexis Couronne">
-
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/solarized.css" id="theme">
-
-		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
-
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
-
-	<body>
-
-		<div class="reveal">
-
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section>
-            <h1>Introduction à l'outil de versionning</h1>
-						<p><img width="300" src="imgs/git-logo.png" alt="Git logo" style="border:none;box-shadow:none;"></p>
+  <head>
+    <meta charset="utf-8">
+    <title>Introduction à l'outil de versionning Git</title>
+    <meta name="description" content="Introduction à l'outil de versionning Git">
+    <meta name="author" content="Alexis Couronne">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="reveal">
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+            <h1>Le versioning avec</h1>
+            <p><img width="300" src="imgs/git-logo.png" alt="Git logo" style="border:none;box-shadow:none;"></p>
             <p><small>Par <a href="http://www.skitoo.net">Alexis Couronne</a> - <a href="http://twitter.com/skitoo">@skitoo</a></small></p>
         </section>
-				<section>
-					pwet
+        <section>
+          <h2>Présentation rapide</h2>
+          <ul>
+            <li>Développeur depuis 10 ans</li>
+            <li>Python et JavaScript</li>
+            <li>Actuelle développeur front chez Gandi.net</li>
+            <li>Membre actif de l'ARU2L</li>
+          </ul>
         </section>
-			</div>
-		</div>
+        <section>
+          <h2>Qu'est ce que le versioning ?</h2>
+          <ul>
+            <li>Gestion d'un ensemble de fichiers texte</li>
+            <li>Historique complet des mofications (ajouts, modifications, suppressions)</li>
+            <li>Facilite le travail en équipe</li>
+            <li>Gestion des branches de développement</li>
+          </ul>
+        </section>
+        <section>
+          <section>
+            <h2>Systèmes centralisés</h2>
+            <p>CVS, Subversion (SVN)...</p>
+          </section>
+          <section>
+            <h3>Avantages</h3>
+            <ul>
+              <li>Simplie la gestion des versions</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Inconvénients</h3>
+            <ul>
+              <li>Forte dépendance à une machine (si défaillance)</li>
+              <li>Obligation d'avoir accès au réseau pour travailler</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Systèmes décentralisés</h2>
+            <p>Git, Mercurial, GNU Arch...</p>
+          </section>
+          <section>
+            <h3>Avantages</h3>
+            <ul>
+              <li>n'est pas dépendant d'une seule machine</li>
+              <li>permet de travailler sans être connecté au gestionnaire de version</li>
+              <li>actions rapides car réalisées en local</li>
+              <li>permet le travail privé pour réaliser des brouillons sans devoir publier ses modifications et gêner les autres contributeurs</li>
+              <li>un dépôt de référence peut être mis en place</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Inconvénients</h3>
+            <ul>
+              <li>Ensemble de l'historique doit être posséder localement (peut être un avantage)</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <p><img width="300" src="imgs/git-logo.png" alt="Git logo" style="border:none;box-shadow:none;"></p>
+          <ul>
+            <li>Développé par Linus Torvald pour les besoins du noyau Linux</li>
+            <li>Naissance en avril 2005</li>
+            <li>Devenu leader graçe à la popularité du réseau social Github</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Flow d'un dépôt en accès en écriture à tous les développeurs</h3>
+          <p><img width="500" src="imgs/git-01.png" alt="Git flow" style="border:none;box-shadow:none;"></p>
+        </section>
+        <section>
+          <h3>Flow d'un dépôt en accès restreint</h3>
+          <p><img width="600" src="imgs/git-02.png" alt="Git flow" style="border:none;box-shadow:none;"></p>
+        </section>
+        <section>
+          <section>
+            <h2>Les bases de GIT</h2>
+          </section>
+          <section>
+            <h3>Intialiser un dépôt Git</h3>
+            <div>
+              <pre><code data-trim>
+                $ git init myproject
+              </code></pre>
+            </div>
+          </section>
+          <section>
+            <pre><code data-trim>
+              $ tree -a myproject
+myproject
+└── .git
+  ├── branches
+  ├── config
+  ├── description
+  ├── HEAD
+  ├── hooks
+  │   ├── applypatch-msg.sample
+  │   ├── commit-msg.sample
+  │   ├── post-update.sample
+  │   ├── pre-applypatch.sample
+  │   ├── pre-commit.sample
+  │   ├── prepare-commit-msg.sample
+  │   ├── pre-push.sample
+  │   ├── pre-rebase.sample
+  │   └── update.sample
+  ├── info
+  │   └── exclude
+  ├── objects
+  │   ├── info
+  │   └── pack
+  └── refs
+      ├── heads
+      └── tags
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+            </code></pre>
+          </section>
+        </section>
+        <section>
+          <h3>Cloner un projet existant</h3>
+          <div>
+            <pre><code data-trim>
+              $ git clone git://mysuperproject.org/myproject
+            </code></pre>
+          </div>
+        </section>
+        <section>
+          <section>
+            <h3>Les 3 états d'un fichier</h3>
+            <p><img width="600" src="imgs/areas.png" alt="Git states" style="border:none;box-shadow:none;"></p>
+            <small>Source image : https://git-scm.com</small>
+          </section>
+          <section>
+            <h3>Les 3 commandes pour changer l'état d'un fichier</h3>
+            <ul>
+              <li>
+                <em>Working directory</em> &larr; <em>Repository</em>
+                <pre><code data-trim>$ git checkout</code></pre>
+              </li>
+              <li>
+                <em>Working directory</em> &rarr; <em>Staging area</em>
+                <pre><code data-trim>$ git add myfile</code></pre>
+              </li>
+              <li>
+                <em>Staging area</em> &rarr; <em>Repository</em>
+                <pre><code data-trim>$ git commit</code></pre>
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Ajout d'un fichier dans le dépôt</h2>
+          </section>
+          <section>
+            <div>
+              Création d'un fichier README
+              <pre><code data-trim>
+                $ echo "My Super readme file" &rsaquo; README
+              </code></pre>
+              Etat du fichier
+              <pre><code data-trim>
+                $ git status
+Sur la branche master
 
-		<script>
+Validation initiale
 
-			// Full list of configuration options available at:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
+Fichiers non suivis:
+  (utilisez "git add &lsaquo;fichier\&rsaquo;..." pour inclure dans ce qui sera validé)
 
-				transition: 'fade', // none/fade/slide/convex/concave/zoom
+        README
 
-				// Optional reveal.js plugins
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
-				]
-			});
+aucune modification ajoutée à la validation mais des fichiers non suivis sont présents (utilisez "git add" pour les suivre)</code></pre>
+            </div>
+          </section>
+          <section>
+            <div>
+              Ajout du fichier dans la zone de transit
+              <pre><code data-trim>
+                $ git add README
+              </code></pre>
+              Etat du fichier
+              <pre><code data-trim>
+                $ git status
+Sur la branche master
 
-		</script>
+Validation initiale
 
-	</body>
+Modifications qui seront validées :
+  (utilisez "git rm --cached &lsaquo;fichier\&rsaquo;..." pour désindexer)
+
+        nouveau fichier : README</code></pre>
+            </div>
+          </section>
+          <section>
+            <div>
+              Ajout du fichier dans le dépôt
+              <pre><code data-trim>
+                $ git commit -m "My first commit"
+[master (commit racine) 3813afa] My first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README
+              </code></pre>
+              Etat du fichier
+              <pre><code data-trim>
+                $ git status
+Sur la branche master
+rien à valider, la copie de travail est propre
+              </code></pre>
+              Historique du dépôt
+              <pre><code data-trim>
+                $ git log
+commit 3813afa66a78ec972cb2de3b0b3f2b10c8612bfd
+Author: Alexis Couronne &lsaquo;alexis@skitoo.net&rsaquo;
+Date:   Sat Jun 04 13:02:21 2016 +0200
+
+    My first commit
+              </code></pre>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Modifier un fichier existant</h2>
+          </section>
+          <section>
+            <div>
+              Modification du fichier README
+              <pre><code data-trim>
+                $ echo 'New super line into README file' &rsaquo;&rsaquo; README
+              </code></pre>
+              Etat du fichier
+              <pre><code data-trim>
+                $ git status
+Sur la branche master
+Modifications qui ne seront pas validées :
+  (utilisez "git add &lsaquo;fichier\&rsaquo;..." pour mettre à jour ce qui sera validé)
+  (utilisez "git checkout -- &lsaquo;fichier\&rsaquo;..." pour annuler les modifications dans la copie de travail)
+
+        modifié :         README
+
+aucune modification n'a été ajoutée à la validation (utilisez "git add" ou "git commit -a")
+              </code></pre>
+            </div>
+          </section>
+          <section>
+            <div>
+              Différence dans le fichier
+              <pre><code data-trim>
+                $ git diff README
+diff --git a/README b/README
+index 91c4b15..503423f 100644
+--- a/README
++++ b/README
+@@ -1 +1,2 @@
+My Super readme file
++New super line into README file
+              </code></pre>
+            </div>
+          </section>
+          <section>
+            Ajout des modifications dans le dépôt
+            <pre><code data-trim>
+              $ git add README
+$ git commit -m "Update README file "
+            </code></pre>
+            Historique du dépôt
+            <pre><code data-trim>
+              $ git log
+commit a32f4f46a364d6c9cbebbdb9f63878050b6be760
+Author: Alexis Couronne &lsaquo;alexis@skitoo.net&rsaquo;
+Date:   Sat Jun 04 13:23:30 2016 +0200
+
+    Update README file
+
+commit 3813afa66a78ec972cb2de3b0b3f2b10c8612bfd
+Author: Alexis Couronne &lsaquo;alexis@skitoo.net&rsaquo;
+Date:   Sat Jun 04 13:02:21 2016 +0200
+
+    My first commit
+            </code></pre>
+          </section>
+          <section>
+            Consulter les infos d'un commit
+            <pre><code data-trim>
+              $ git show a32f4f46a364d6c9cbebbdb9f63878050b6be760
+commit a32f4f46a364d6c9cbebbdb9f63878050b6be760
+Author: Alexis Couronne &lsaquo;alexis@skitoo.net&rsaquo;
+Date:   Sat Jun 04 13:23:30 2016 +0200
+
+    Update README file
+
+diff --git a/README b/README
+index 91c4b15..503423f 100644
+--- a/README
++++ b/README
+@@ -1 +1,2 @@
+ My Super readme file
++New super line into README file
+            </code></pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Configuration de Git</h2>
+          </section>
+          <section>
+            <p>Il est possible de configurer git sur plusieurs niveaux :</p>
+            <ul>
+              <li><em>.git/config</em> concerne le dépôt (option : --local)</li>
+              <li><em>~/.gitconfig</em> concerne l'utilisateur (option : --global)</li>
+              <li><em>/etc/gitconfig</em> concerne le système (option : --system)</li>
+            </ul>
+          </section>
+          <section>
+            Exemple de configuration
+            <pre><code data-trim>
+              $ git config --global user.name "Alexis Couronne"
+$ git config --global user.email "alexis@skitoo.net"
+            </code></pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Les Branches</h2>
+          </section>
+          <section>
+            <h3>Qu'est ce qu'une branche ?</h3>
+            <ul>
+              <li>Un pointeur sur un commit</li>
+              <li>Branche par défaut : "<strong>master</strong>"</li>
+              <li>Au fur est à mesure, la branche courante se positionne sur le dernier commit réalisé</li>
+            </ul>
+            <p><img width="600" src="imgs/one-branches.png" style="border:none;box-shadow:none;"></p>
+            <small>Source image : https://git-scm.com</small>
+          </section>
+          <section>
+            <h3>Création d'une nouvelle branche</h3>
+            <pre><code data-trim>
+              $ git branch testing
+            </code></pre>
+            <p><img width="600" src="imgs/two-branches.png" style="border:none;box-shadow:none;"></p>
+            <small>Source image : https://git-scm.com</small>
+          </section>
+          <section>
+            <h3>Sur quelle branche sommes nous ?</h3>
+            <p><img width="600" src="imgs/head-to-master.png" style="border:none;box-shadow:none;"></p>
+            <small>Source image : https://git-scm.com</small>
+          </section>
+          <section>
+            Pour vérifier tout ça, on utilise la commande <strong>log</strong> mais avec l'option <em>--decorate</em>
+            <pre><code data-trim>
+              $ git log --oneline --decorate
+a32f4f4 (HEAD -&rsaquo; master, testing) Update README file
+3813afa My first commit
+            </code></pre>
+          </section>
+          <section>
+            <h2>Changer de branche</h2>
+            <pre><code data-trim>
+              $ git checkout testing
+            </code></pre>
+            <p><img width="600" src="imgs/head-to-testing.png" style="border:none;box-shadow:none;"></p>
+            <small>Source image : https://git-scm.com</small>
+          </section>
+          <section>
+            <h3>Faisons une nouvelle modification</h3>
+            <pre><code data-trim>
+              $ echo "Another new line" &rsaquo;&rsaquo; README
+$ git add README
+$ git commit -m "Another update for README file"
+            </code></pre>
+            Que s'est-il passé ?
+            <p><img width="600" src="imgs/advance-testing.png" style="border:none;box-shadow:none;"></p>
+            <small>Source image : https://git-scm.com</small>
+          </section>
+          <section>
+            <h3>Revenons sur master</h3>
+            <p>Et faisons de nouvelles modifications</p>
+            <pre><code data-trim>
+              $ git checkout master
+$ echo "print('hello')" &rsaquo; hello.py
+$ git add hello.py
+$ git commit -m "add hello.py file"
+            </code></pre>
+            <p><img width="600" src="imgs/advance-master.png" style="border:none;box-shadow:none;"></p>
+            <small>Source image : https://git-scm.com</small>
+          </section>
+          <section>
+            Pour vérifier tout ça, on utilise la commande <strong>log</strong> mais avec des nouvelles options
+            <pre><code data-trim>
+              $ git log --oneline --decorate --graph --all
+* d23583f (HEAD -&rsaquo; master) add hello.py file
+| * 98da44c (testing) Another update for README file
+|/
+* a32f4f4 Update README file
+* 3813afa My first commit
+            </code></pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>La fusion de branches</h2>
+          </section>
+          <section>
+            <h3>Comment ça fonctionne ?</h3>
+            <ul>
+              <li>On peut fusionner 2 branches pour combiner les modifications</li>
+              <li>La fusion se fait toujours vers la branche courante</li>
+              <li>Une fusion s'accompagne d'un message, comme le commit</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Utilisation de la commande <strong>merge</strong></h3>
+            <pre><code data-trim>
+              $ git merge testing
+Merge made by the 'recursive' strategy.
+ README | 1 +
+            </code></pre>
+            Vérifications
+            <pre><code data-trim>
+              $ git log --oneline --decorate --graph --all
+*   b7047e2 (HEAD -&rsaquo; master) Merge branch 'testing'
+|\
+| * 98da44c (testing) Another update for README file
+* | d23583f add hello.py file
+|/
+* a32f4f4 Update README file
+* 3813afa My first commit
+            </code></pre>
+          </section>
+          <section>
+            <h3>Gestion des conflits</h3>
+            Revenons en arrière. Avant de fusionner, rajoutons une ligne dans le fichier README (toujours sur master)
+            <pre><code data-trim>
+              $ echo "Made with &lsaquo;3 by skitoo" &rsaquo;&rsaquo; README
+$ git add README
+$ git commit -m "Update README file"
+            </code></pre>
+            Vérifions
+            <pre><code data-trim>
+git log --oneline --decorate --graph --all
+* 92d7c7f (HEAD -&rsaquo; master) Update README file
+* d23583f add hello.py file
+| * 98da44c (testing) Another update for README file
+|/
+* a32f4f4 Update README file
+* 3813afa My first commit
+            </code></pre>
+          </section>
+          <section>
+            <h3>Fusion !!</h3>
+            <pre><code data-trim>
+              $  git merge testing
+Fusion automatique de README
+CONFLIT (contenu) : Conflit de fusion dans README
+La fusion automatique a échoué ; réglez les conflits et validez le résultat.
+            </code></pre>
+            WTF ?
+            <pre><code data-trim>
+              $ git status
+Sur la branche master
+Vous avez des chemins non fusionnés.
+(réglez les conflits puis lancez "git commit")
+
+Chemins non fusionnés :
+(utilisez "git add &lsaquo;fichier\&rsaquo;..." pour marquer comme résolu)
+
+modifié des deux côtés :  README
+
+            </code></pre>
+          </section>
+          <section>
+            Il faut donc éditer le fichier pour résoudre le conflit
+            <pre><code data-trim>$ vi README</code></pre>
+            <pre><code data-trim>
+My Super readme file
+New super line into README file
+&lsaquo;&lsaquo;&lsaquo;&lsaquo;&lsaquo;&lsaquo;&lsaquo; HEAD
+Made with &lsaquo;3 by skitoo
+=======
+Another new line
+&rsaquo;&rsaquo;&rsaquo;&rsaquo;&rsaquo;&rsaquo;&rsaquo; testing
+            </code></pre>
+            <pre><code data-trim>
+My Super readme file
+New super line into README file
+Another new line
+Made with &lsaquo;3 by skitoo
+            </code></pre>
+          </section>
+          <section>
+            Une fois mon conflit résolu je peux fusionner
+            <pre><code data-trim>
+              $ git add README
+$ git commit  # permet de terminer la fusion
+            </code></pre>
+            Vérifions
+            <pre><code data-trim>
+              $ git log --oneline --decorate --graph --all
+*   c4df37b (HEAD -&rsaquo; master) Merge branch 'testing'
+|\
+| * 98da44c (testing) Another update for README file
+* | 92d7c7f Update README file
+* | d23583f add hello.py file
+|/
+* a32f4f4 Update README file
+* 3813afa My first commit
+</code></pre>
+          </section>
+          <section>
+            <h3>Suppression d'une branche</h3>
+            Ma branche testing n'est plus utile, je peux donc la supprimer
+            <pre><code data-trim>
+              $ git branch -D testing
+Branche testing supprimée (précédemment 98da44c).
+            </code></pre>
+            Vérifions
+            <pre><code data-trim>
+              $ git log --oneline --decorate --graph --all
+*   c4df37b (HEAD -&rsaquo; master) Merge branch 'testing'
+|\
+| * 98da44c Another update for README file
+* | 92d7c7f Update README file
+* | d23583f add hello.py file
+|/
+* a32f4f4 Update README file
+* 3813afa My first commit
+            </code></pre>
+          </section>
+        </section>
+
+
+        <!-- REBASE
+        <section>
+          <section>
+            <h2>Rebase</h2>
+          </section>
+          <section>
+            La fonction "rebase" permet de réécrire l'historique d'une branche. Il doit être donc utilisé avec précaution.
+
+
+          </section>
+        </section> -->
+
+        <!-- DEPOT DISTANT -->
+        <section>
+          <section>
+            <h2>Dépot distant</h2>
+          </section>
+          <section>
+            <h3>Clonage d'un dépôt distant</h3>
+            <pre><code data-trim>
+              $ git clone git@github.com:elm-lang/elm-compiler.git
+            </code></pre>
+          </section>
+          <section>
+            <h3>Infos sur les dépôts distants</h3>
+            <pre><code data-trim>
+$ git remote -v
+origin  git@github.com:elm-lang/elm-compiler.git (fetch)
+origin  git@github.com:elm-lang/elm-compiler.git (push)
+            </code></pre>
+          </section>
+
+          <section>
+            <h3>Liste des branches</h3>
+            <pre><code data-trim>
+              $ git branch -a
+* master
+remotes/origin/HEAD -&rsaquo; origin/master
+remotes/origin/master
+remotes/origin/stable
+            </code></pre>
+          </section>
+
+          <section>
+            <h3>Ajout d'un dépôt distant</h3>
+            <pre><code data-trim>
+$ git remote add framasoft git@framagit.org:skitoo/elm-compiler.git
+            </code></pre>
+
+            <pre><code data-trim>
+$ git remote -v
+framasoft       git@framagit.org:skitoo/elm-compiler.git (fetch)
+framasoft       git@framagit.org:skitoo/elm-compiler.git (push)
+origin  git@github.com:elm-lang/elm-compiler.git (fetch)
+origin  git@github.com:elm-lang/elm-compiler.git (push)
+            </code></pre>
+          </section>
+
+          <section>
+            <h3>Envoyer du code sur le dépôt distant</h3>
+            <pre><code data-trim>
+              $ git push origin master
+            </code></pre>
+          </section>
+
+          <section>
+            <h3>Récupérer du code depuis dépôt distant</h3>
+            <pre><code data-trim>
+              $ git fetch origin
+            </code></pre>
+          </section>
+
+          <section>
+            <h3>Récupérer du code depuis dépôt distant puis le fusionner avec le dépôt local</h3>
+            <pre><code data-trim>
+              $ git pull origin master
+            </code></pre>
+          </section>
+        </section>
+
+
+        <!-- TOOLS -->
+        <section>
+          <section>
+            <h2>Fonctionnalités utiles</h2>
+          </section>
+          <section>
+            <h3>STASH</h3>
+            <p style="text-align:left;">Il peut être interdit de changer de branche sans faire un commit.
+            On peut alors "sauvegarder" dans une pile nos modifications courantes "non commitées"</p>
+            <pre><code data-trim>
+              $ git stash
+Saved working directory and index state WIP on master: c4df37b Merge branch 'testing'
+HEAD est maintenant à c4df37b Merge branch 'testing'
+            </code></pre>
+            Pour voir la liste des "sauvegardes"
+            <pre><code data-trim>
+              $ git stash list
+stash@{0}: WIP on master: c4df37b Merge branch 'testing'
+            </code></pre>
+            Et enfin réapliquer la dernière "sauvegarde"
+            <pre><code data-trim>
+              $ git stash pop
+            </code></pre>
+          </section>
+          <section>
+            <h3>Modifier le dernier commit</h3>
+            Il peut être utile de modifier le dernier commit. <br>Exemple : faute de frappe dans un fichier.
+            Pour cela on modifie le fichier concerné. On l'ajoute sur le stage, puis
+            <pre><code data-trim>
+              $ git commit --amend
+            </code></pre>
+            Ceci ne créera pas un nouveau commit. Mais changera le dernier.
+          </section>
+          <section>
+            <h3>Historique d'un fichier</h3>
+            La commande <strong>blame</strong> permet de voir qui a modifié le fichier.
+            <pre><code data-trim>
+              $ git blame README
+^3813afa (Alexis Couronne 2016-06-04 13:02:21 +0200 1) My Super readme file
+a32f4f46 (Alexis Couronne 2016-06-04 13:23:30 +0200 2) New super line into README file
+98da44c2 (Alexis Couronne 2016-06-04 15:37:23 +0200 3) Another new line
+92d7c7fb (Alexis Couronne 2016-06-04 16:28:23 +0200 4) Made with &lsaquo;3 by skitoo
+            </code></pre>
+          </section>
+
+          <section>
+            <h3>Ignorer des fichiers automatiquement</h3>
+            Editer un fichier <strong>.gitignore</strong> à la racine du projet.
+
+            <pre><code data-trim>
+*.pyc
+*.pyo
+
+node_modules
+
+*.jar
+            </code></pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Références</h2>
+          </section>
+          <section>
+            <h3>Sites internet</h3>
+            <ul>
+              <li>Site officiel : https://www.git-scm.com</li>
+              <li>Des tips sur git : https://github.com/git-tips/tips</li>
+            </ul>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'fade', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+  </body>
 </html>

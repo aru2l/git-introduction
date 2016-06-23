@@ -1,0 +1,24 @@
+<section>
+  <section>
+    <h2>Fonctionnalités utiles</h2>
+  </section>
+  <section>
+    <h3>STASH</h3>
+    <p>Il peut être interdit de changer de branche sans faire un commiut avant.</p>
+    <p>On peut dans "sauvegarder" dans une pile nos modifications courantes "non commitées"</p>
+    <pre><code data-trim>
+      $ git stash
+Saved working directory and index state WIP on master: c4df37b Merge branch 'testing'
+HEAD est maintenant à c4df37b Merge branch 'testing'
+    </code></pre>
+    Pour voir la liste des "sauvegardes"
+    <pre><code data-trim>
+      $ git stash list
+stash@{0}: WIP on master: c4df37b Merge branch 'testing'
+    </code></pre>
+    Et enfin réapliquer la dernière "sauvegarde"
+    <pre><code data-trim>
+      $ git stash pop
+    </code></pre>
+  </section>
+</section>
